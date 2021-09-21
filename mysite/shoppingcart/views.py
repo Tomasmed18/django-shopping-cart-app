@@ -7,9 +7,8 @@ def index(request):
 
 def get_all_products(request):
     all_products = Product.objects.all()
-    output = ', '.join([p.name for p in all_products])
-    return HttpResponse(output)
+    return render(request, 'shoppingcart/all-products.html', {'product_list': all_products})
 
 def get_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    return HttpResponse(product)
+    return render(request, 'shoppingcart/product-detail.html', {'product': product})
