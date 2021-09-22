@@ -6,3 +6,9 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(default=0)
     def __str__(self) -> str:
         return self.name
+
+class Customer(models.Model):
+    username = models.CharField(max_length=20)
+    email = models.EmailField()
+    name = models.CharField(max_length=50, null=True)
+    address = models.CharField(max_length=50, null=True)
