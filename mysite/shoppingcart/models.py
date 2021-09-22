@@ -12,3 +12,7 @@ class Customer(models.Model):
     email = models.EmailField()
     name = models.CharField(max_length=50, null=True)
     address = models.CharField(max_length=50, null=True)
+
+class Cart(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product)
